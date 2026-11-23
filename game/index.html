@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LUMEN TIDE — Duel at the Lighthouse</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <div class="wave w1"></div>
+  <div class="wave w2"></div>
+
+  <!-- TITLE SCREEN -->
+  <div id="title-screen">
+    <svg class="lighthouse" viewBox="0 0 120 190" aria-hidden="true">
+      <path d="M60 8 L96 34 L60 30 L24 34 Z" fill="#ffd66e" opacity="0.85"/>
+      <path d="M52 34 L68 34 L72 150 L48 150 Z" fill="#eaf7f2"/>
+      <path d="M50 74 L70 74 L71 96 L49 96 Z" fill="#ff5a4e"/>
+      <path d="M49 112 L71 112 L72 134 L48 134 Z" fill="#ff5a4e"/>
+      <rect x="46" y="150" width="28" height="10" fill="#ffd66e"/>
+      <rect x="40" y="160" width="40" height="12" rx="3" fill="#0d3a4a" stroke="#4de8d2" stroke-width="2"/>
+      <circle cx="60" cy="24" r="9" fill="#fff3c4"/>
+    </svg>
+    <h1>LUMEN TIDE</h1>
+    <h2>DUEL AT THE LIGHTHOUSE</h2>
+    <p class="tagline">You are the Keeper. The Storm wants your light. Hold the beam.</p>
+    <div class="rules">
+      Both sides start at <b>20 life</b> &nbsp;·&nbsp; Each turn you get <b>3 pearls</b> of energy<br>
+      Click a card to play it &nbsp;·&nbsp; <b>Strike</b> hurts the Storm, <b>Block</b> stops damage, <b>Heal</b> mends you<br>
+      Press <b>END TURN</b> — then the Storm answers. First to <b>0 life</b> loses.
+    </div>
+    <button id="play-btn">▶ &nbsp;PLAY THE DUEL</button>
+    <div class="foot">A 1V1 CARD DUEL &nbsp;·&nbsp; NO LUCK, ONLY LIGHT &nbsp;·&nbsp; LUMEN TIDE</div>
+  </div>
+
+  <!-- TABLE -->
+  <div id="table" class="hidden">
+    <div class="side" id="enemy-side">
+      <div class="avatar enemy">
+        <svg viewBox="0 0 72 72"><path d="M20 44 a12 12 0 0 1 2-24 a16 16 0 0 1 30-4 a11 11 0 0 1 4 28 Z" fill="#8f7bff"/><path d="M38 46 L30 58 H38 L32 68 L48 54 H40 Z" fill="#ffd66e"/></svg>
+      </div>
+      <div class="who">
+        <div class="name enemy">THE STORM</div>
+        <div class="life-row"><span class="life-label">LIFE</span><span class="life-num enemy" id="enemy-life">20</span><span class="life-max">/ 20</span></div>
+        <div class="life-bar"><div class="life-fill enemy" id="enemy-bar" style="width:100%"></div></div>
+        <span class="block-badge" id="enemy-block" style="display:none"></span>
+      </div>
+      <div class="hand" id="enemy-hand"></div>
+    </div>
+
+    <div id="midbar">
+      <div id="turn-label">TURN 1 — YOUR MOVE</div>
+      <div id="energy">PEARLS</div>
+      <button id="end-turn-btn">END TURN</button>
+    </div>
+    <div id="log"></div>
+
+    <div class="side" id="player-side">
+      <div class="avatar">
+        <svg viewBox="0 0 72 72"><rect x="30" y="26" width="12" height="34" fill="#eaf7f2"/><path d="M28 26 L44 26 L40 10 L32 10 Z" fill="#ffd66e"/><circle cx="36" cy="18" r="6" fill="#fff3c4"/><path d="M14 60 H58" stroke="#4de8d2" stroke-width="4" stroke-linecap="round"/><path d="M14 52 Q36 44 58 52" fill="none" stroke="#4de8d2" stroke-width="3"/></svg>
+      </div>
+      <div class="who">
+        <div class="name player">THE KEEPER — YOU</div>
+        <div class="life-row"><span class="life-label">LIFE</span><span class="life-num" id="player-life">20</span><span class="life-max">/ 20</span></div>
+        <div class="life-bar"><div class="life-fill" id="player-bar" style="width:100%"></div></div>
+        <span class="block-badge" id="player-block" style="display:none"></span>
+      </div>
+      <div class="hand" id="player-hand"></div>
+    </div>
+  </div>
+
+  <!-- END SCREEN -->
+  <div id="end-screen" class="hidden">
+    <div id="end-title"></div>
+    <div id="end-sub"></div>
+    <div id="end-stats"></div>
+    <button id="again-btn">↻ &nbsp;PLAY AGAIN</button>
+  </div>
+
+  <div id="debug-bar">LUMEN TIDE · 1v1 card duel · ?screen=title|mid|win|lose</div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
